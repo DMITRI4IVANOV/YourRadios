@@ -109,7 +109,18 @@ class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+//    Около граничного значения ( для кнопки Prev)
+    void sholdFrontoftheBorder3PrevForStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(11);
+        radio.prev();
 
+        int actual = radio.getCurrentStation();
+        int expected = 9;
+
+        Assertions.assertEquals(expected, actual);
+    }
     @Test
 //    Граничное значение для звука ( кнопка increaseVolume "+")
     void sholdBoundary1IncreaseVolumeForVolume() {
@@ -206,6 +217,18 @@ class RadioTest {
     void sholdFrontoftheBorder2DecreaseVolumeForVolume() {
         Radio radio = new Radio();
         radio.setCurrentVolume(1);
+        radio.decreaseVolume();
+
+        int actual = radio.getCurrentVolume();
+        int expected = 0;
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+//    Около граничного значения для звука ( кнопка decreaseVolume "-")
+    void sholdFrontoftheBorder3DecreaseVolumeForVolume() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(11);
         radio.decreaseVolume();
 
         int actual = radio.getCurrentVolume();
