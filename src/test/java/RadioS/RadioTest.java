@@ -9,7 +9,7 @@ class RadioTest {
     @Test
 //    Около граничного значения ( для кнопки Next)
     void sholdFrontoftheBorder1NextForStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(8);
         radio.next();
 
@@ -22,7 +22,7 @@ class RadioTest {
     @Test
 //    Около граничного значения ( для кнопки Next)
     void sholdFrontoftheBorder2NextForStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(1);
         radio.next();
 
@@ -35,7 +35,7 @@ class RadioTest {
     @Test
 //    Граничное значение ( для кнопки Next)
     void sholdBoundary1NextForStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(9);
         radio.next();
 
@@ -48,7 +48,7 @@ class RadioTest {
     @Test
 //    Граничное значение ( для кнопки Next)
     void sholdBoundary2NextForStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(0);
         radio.next();
 
@@ -61,7 +61,7 @@ class RadioTest {
     @Test
 //    Граничное значение ( для кнопки Prev)
     void sholdBoundary1PrevForStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(0);
         radio.prev();
 
@@ -74,7 +74,7 @@ class RadioTest {
     @Test
 //    Граничное значение ( для кнопки Prev)
     void sholdBoundary2PrevForStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(9);
         radio.prev();
 
@@ -87,7 +87,7 @@ class RadioTest {
     @Test
 //    Около граничного значения ( для кнопки Prev)
     void sholdFrontoftheBorder1PrevForStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(8);
         radio.prev();
 
@@ -100,7 +100,7 @@ class RadioTest {
     @Test
 //    Около граничного значения ( для кнопки Prev)
     void sholdFrontoftheBorder2PrevForStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(1);
         radio.prev();
 
@@ -112,7 +112,7 @@ class RadioTest {
     @Test
 //    Около граничного значения ( для кнопки Prev)
     void sholdFrontoftheBorder3PrevForStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentStation(11);
         radio.prev();
 
@@ -124,7 +124,7 @@ class RadioTest {
     @Test
 //    Граничное значение для звука ( кнопка increaseVolume "+")
     void sholdBoundary1IncreaseVolumeForVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentVolume(0);
         radio.increaseVolume();
 
@@ -137,12 +137,12 @@ class RadioTest {
     @Test
 //    Граничное значение для звука ( кнопка increaseVolume "+")
     void sholdBoundary2IncreaseVolumeForVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        Radio radio = new Radio(10);
+        radio.setCurrentVolume(100);
         radio.increaseVolume();
 
         int actual = radio.getCurrentVolume();
-        int expected = 10;
+        int expected = 100;
 
         Assertions.assertEquals(expected, actual);
     }
@@ -150,12 +150,12 @@ class RadioTest {
     @Test
 //    Граничное значение для звука ( кнопка decreaseVolume "-")
     void sholdBoundary1DecreaseVolumeForVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        Radio radio = new Radio(10);
+        radio.setCurrentVolume(100);
         radio.decreaseVolume();
 
         int actual = radio.getCurrentVolume();
-        int expected = 9;
+        int expected = 99;
 
         Assertions.assertEquals(expected, actual);
     }
@@ -163,7 +163,7 @@ class RadioTest {
     @Test
 //    Граничное значение для звука ( кнопка decreaseVolume "-")
     void sholdBoundary2DecreaseVolumeForVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentVolume(0);
         radio.decreaseVolume();
 
@@ -176,12 +176,12 @@ class RadioTest {
     @Test
 //    Около граничного значения для звука ( кнопка increaseVolume "+")
     void sholdFrontoftheBorder1IncreaseVolumeForVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(9);
+        Radio radio = new Radio(10);
+        radio.setCurrentVolume(99);
         radio.increaseVolume();
 
         int actual = radio.getCurrentVolume();
-        int expected = 10;
+        int expected = 100;
 
         Assertions.assertEquals(expected, actual);
     }
@@ -189,7 +189,7 @@ class RadioTest {
     @Test
 //    Около граничного значения для звука ( кнопка increaseVolume "+")
     void sholdFrontoftheBorder2IncreaseVolumeForVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentVolume(0);
         radio.increaseVolume();
 
@@ -202,12 +202,12 @@ class RadioTest {
     @Test
 //    Около граничного значения для звука ( кнопка decreaseVolume "-")
     void sholdFrontoftheBorder1DecreaseVolumeForVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(9);
+        Radio radio = new Radio(10);
+        radio.setCurrentVolume(99);
         radio.decreaseVolume();
 
         int actual = radio.getCurrentVolume();
-        int expected = 8;
+        int expected = 98;
 
         Assertions.assertEquals(expected, actual);
     }
@@ -215,7 +215,7 @@ class RadioTest {
     @Test
 //    Около граничного значения для звука ( кнопка decreaseVolume "-")
     void sholdFrontoftheBorder2DecreaseVolumeForVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentVolume(1);
         radio.decreaseVolume();
 
@@ -227,8 +227,8 @@ class RadioTest {
     @Test
 //    Около граничного значения для звука ( кнопка decreaseVolume "-")
     void sholdFrontoftheBorder3DecreaseVolumeForVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(11);
+        Radio radio = new Radio(10);
+        radio.setCurrentVolume(101);
         radio.decreaseVolume();
 
         int actual = radio.getCurrentVolume();
